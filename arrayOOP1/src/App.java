@@ -46,6 +46,26 @@ public class App {
         return media;
     }
 
+    static int maxMinEta (Contatti[] rubrica, boolean max, int cont, int annoCorrente){
+        int m = rubrica[0].calcolaEta(annoCorrente);
+
+        if(max){
+            for(int i = 0; i < cont; i++){
+                if(rubrica[i].calcolaEta(annoCorrente) > m){
+                    m = rubrica[i].calcolaEta(annoCorrente);
+                }
+            }
+        }else{
+            for(int i = 0; i < cont; i++){
+                if(rubrica[i].calcolaEta(annoCorrente) < m){
+                    m = rubrica[i].calcolaEta(annoCorrente);
+                }
+            }
+        }
+
+        return m;
+    }
+
     public static void main(String[] args) throws Exception {
         Contatti rubrica[] = new Contatti[1000];
         int cont = 0;
@@ -53,7 +73,8 @@ public class App {
         String nome, cognome, cellulare;
         int annoNascita;
         int annoCorrente, eta;
-        int ind; String primoCog;
+        int ind; String primoCog; float media;
+        int maxEta, minEta;
         Scanner scanner = new Scanner(System.in);
 
         do{
@@ -196,7 +217,6 @@ public class App {
                     break;
                 case 8:
                     if(cont > 0){
-                        float media;
 
                         System.out.println("Inserisci anno corrente");
                         annoCorrente = scanner.nextInt();
@@ -210,7 +230,6 @@ public class App {
                     break;
                 case 9:
                     if(cont > 0){
-                        float media;
                         int k = 0;
 
                         System.out.println("Inserisci anno corrente");
@@ -232,13 +251,29 @@ public class App {
                     break;
                 case 10:
                     if(cont > 0){
+                        System.out.println("Inserisci anno corrente");
+                        annoCorrente = scanner.nextInt();
+                        scanner.nextLine();
 
+                        maxEta = maxMinEta(rubrica, true, cont, annoCorrente);
+
+                        System.out.println("Eta max= " + maxEta);
                     }else{
                         System.out.println("Non ci sono elementi nell'array");
                     }
                     break;
                 case 11:
+                    if(cont > 0){
+                        System.out.println("Inserisci anno corrente");
+                        annoCorrente = scanner.nextInt();
+                        scanner.nextLine();
 
+                        minEta = maxMinEta(rubrica, false, cont, annoCorrente);
+
+                        System.out.println("Eta min= " + minEta);
+                    }else{
+                        System.out.println("Non ci sono elementi nell'array");
+                    }
                     break;
                 default:
                     System.out.println("Scelta non prevista");                    
