@@ -6,6 +6,7 @@
  * 9. Numero contatti con eta maggiore della media
  * 10. eta massima
  * 11. eta minima
+ * Bella questa e' una prova
  */
 import java.util.*;
 public class App {
