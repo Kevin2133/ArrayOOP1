@@ -2,6 +2,10 @@
  * 5. Primo cognome in ordine alfabetico
  * 6. Cognome piu' lungo
  * 7. Quanti cognomi ci sono che iniziano per A?
+ * 8. Calcola eta media dei contatti
+ * 9. Numero contatti con eta maggiore della media
+ * 10. eta massima
+ * 11. eta minima
  */
 import java.util.*;
 public class App {
@@ -27,6 +31,23 @@ public class App {
         return k;
     }
 
+    static float mediaEta (Contatti[] rubrica, int cont){
+        float media, somma = 0;
+        int k = 0;
+                        
+        System.out.println("Inserisci anno corrente");
+        annoCorrente = scanner.nextInt();
+        scanner.nextLine();
+
+        for(int i = 0; i < cont; i++){
+        if(rubrica[i].calcolaEta(annoCorrente) > -1)
+            somma = somma + rubrica[i].calcolaEta(annoCorrente);
+            k++;
+        }
+
+        media = somma / k;
+    }
+
     public static void main(String[] args) throws Exception {
         Contatti rubrica[] = new Contatti[1000];
         int cont = 0;
@@ -46,6 +67,10 @@ public class App {
             System.out.println("5. Primo cognome ordine alfabetico");
             System.out.println("6. Cognome piu' lungo");
             System.out.println("7. Quanti cognomi con lettera A");
+            System.out.println("8. Eta media contatti");
+            System.out.println("9. Numero contatti con eta maggiore della media");
+            System.out.println("10. Eta Max");
+            System.out.println("11. Eta Min");
 
             scelta = scanner.nextInt();
             scanner.nextLine();
@@ -170,6 +195,36 @@ public class App {
                     }else{
                         System.out.println("Non ci sono elementi nell'array");
                     }
+                    break;
+                case 8:
+                    if(cont > 0){
+                        float media, somma = 0;
+                        int k = 0;
+                        
+                        System.out.println("Inserisci anno corrente");
+                        annoCorrente = scanner.nextInt();
+                        scanner.nextLine();
+
+                        for(int i = 0; i < cont; i++){
+                            if(rubrica[i].calcolaEta(annoCorrente) > -1)
+                            somma = somma + rubrica[i].calcolaEta(annoCorrente);
+                            k++;
+                        }
+
+                        media = somma / k;
+                        
+                    }else{
+                        System.out.println("Non ci sono elementi nell'array");
+                    }
+                    break;
+                case 9:
+
+                    break;
+                case 10:
+
+                    break;
+                case 11:
+
                     break;
                 default:
                     System.out.println("Scelta non prevista");                    
