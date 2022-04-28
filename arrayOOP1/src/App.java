@@ -31,13 +31,11 @@ public class App {
         return k;
     }
 
-    static float mediaEta (Contatti[] rubrica, int cont){
+    static float mediaEta (Contatti[] rubrica, int cont, int annoCorrente){
         float media, somma = 0;
         int k = 0;
                         
-        System.out.println("Inserisci anno corrente");
-        annoCorrente = scanner.nextInt();
-        scanner.nextLine();
+        
 
         for(int i = 0; i < cont; i++){
         if(rubrica[i].calcolaEta(annoCorrente) > -1)
@@ -46,6 +44,8 @@ public class App {
         }
 
         media = somma / k;
+
+        return media;
     }
 
     public static void main(String[] args) throws Exception {
@@ -198,27 +198,39 @@ public class App {
                     break;
                 case 8:
                     if(cont > 0){
-                        float media, somma = 0;
-                        int k = 0;
-                        
+                        float media;
+
                         System.out.println("Inserisci anno corrente");
                         annoCorrente = scanner.nextInt();
                         scanner.nextLine();
 
-                        for(int i = 0; i < cont; i++){
-                            if(rubrica[i].calcolaEta(annoCorrente) > -1)
-                            somma = somma + rubrica[i].calcolaEta(annoCorrente);
-                            k++;
-                        }
-
-                        media = somma / k;
-                        
+                        media = mediaEta(rubrica, cont, annoCorrente);
+                        System.out.println("Eta' media= " + media);                        
                     }else{
                         System.out.println("Non ci sono elementi nell'array");
                     }
                     break;
                 case 9:
+                    if(cont > 0){
+                        float media;
+                        int k = 0;
 
+                        System.out.println("Inserisci anno corrente");
+                        annoCorrente = scanner.nextInt();
+                        scanner.nextLine();
+
+                        media = mediaEta(rubrica, cont, annoCorrente);
+
+                        for(int i = 0; i < cont; i++){
+                            if(rubrica[i].calcolaEta(annoCorrente) > media){
+                                k++;
+                            }
+                        }
+                        
+                        System.out.println("Contatti con Eta maggiore della media= " + k);
+                    }else{
+                        System.out.println("Non ci sono elementi nell'array");
+                    }
                     break;
                 case 10:
 
