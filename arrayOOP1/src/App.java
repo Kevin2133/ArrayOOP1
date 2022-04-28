@@ -34,9 +34,7 @@ public class App {
     static float mediaEta (Contatti[] rubrica, int cont, int annoCorrente){
         float media, somma = 0;
         int k = 0;
-                        
         
-
         for(int i = 0; i < cont; i++){
         if(rubrica[i].calcolaEta(annoCorrente) > -1)
             somma = somma + rubrica[i].calcolaEta(annoCorrente);
