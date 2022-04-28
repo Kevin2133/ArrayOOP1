@@ -231,7 +231,11 @@ public class App {
                     }
                     break;
                 case 10:
+                    if(cont > 0){
 
+                    }else{
+                        System.out.println("Non ci sono elementi nell'array");
+                    }
                     break;
                 case 11:
 
