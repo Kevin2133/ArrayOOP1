@@ -25,10 +25,13 @@ public class Contatti {
         System.out.println("***********");        
     }
 
-    boolean nameEndsWith(char c){
-        if(this.nome.charAt(this.nome.length() - 1) == c){
-            return true;
+    boolean nameEndsWith(char[] c){
+        for(int i = 0; i < c.length; i++){
+            if(this.nome.charAt(this.nome.length() - 1) == c[i]){
+                return true;
+            }
         }
+        
         
         return false;        
     }

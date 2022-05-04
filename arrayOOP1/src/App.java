@@ -34,6 +34,14 @@ public class App {
         return k;
     }
 
+    static boolean searchSubs (String s, String subs){
+        if(s.indexOf(subs) > 0){
+            return true;
+        }
+
+        return false;
+    }
+
     static float mediaEta (Contatti[] rubrica, int cont, int annoCorrente){
         float media, somma = 0;
         int k = 0;
@@ -282,13 +290,37 @@ public class App {
                     break;
                 case 12:
                     if(cont > 0){
-                        
+                        int k = 0;
+                        String subs = "anna";
+                        for(int i = 0; i < cont; i++){
+                            if(searchSubs(rubrica[i].nome, subs)){
+                            k++;
+                            }
+                        }
+
+                        System.out.println("Numero di nomi che contengono la stringa \"anna\" " + k);
                     }else{
                         System.out.println("Non ci sono elementi nell'array");
                     }
                     break;
                 case 13:
+                if(cont > 0){
+                    int k = 0;
+                    String subs;
 
+                    System.out.println("Inserisci una sottostringa");
+                    subs = scanner.nextLine();
+
+                    for(int i = 0; i < cont; i++){
+                        if(searchSubs(rubrica[i].nome, subs)){
+                        k++;
+                        }
+                    }
+
+                    System.out.println("Numero di nomi che contengono la stringa \"anna\" " + k);
+                }else{
+                    System.out.println("Non ci sono elementi nell'array");
+                }
                     break;
                 case 14:
                     if(cont > 0){
@@ -300,6 +332,23 @@ public class App {
                         }
 
                         System.out.println("Contatti con nome che finisce per a= " + k);
+                    }else{
+                        System.out.println("Non ci sono elementi nell'array");
+                    }
+                    break;
+                case 15:
+                    if(cont > 0){
+                        char[] vocali = {'a', 'e', 'i', 'o', 'u'};
+
+                        int k = 0;
+
+                        for(int i = 0; i < cont; i++){
+                            if(!rubrica[i].nameEndsWith(vocali)){
+                                k++;
+                            }
+                        }
+
+                        System.out.println("Nomi che finiscono per consonante= " + k);
                     }else{
                         System.out.println("Non ci sono elementi nell'array");
                     }
