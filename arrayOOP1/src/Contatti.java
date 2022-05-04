@@ -24,4 +24,12 @@ public class Contatti {
         System.out.println("annoNascita= " + this.annoNascita);
         System.out.println("***********");        
     }
+
+    boolean nameEndsWith(char c){
+        if(this.nome.charAt(this.nome.length() - 1) == c){
+            return true;
+        }
+        
+        return false;        
+    }
 }

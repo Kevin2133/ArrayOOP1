@@ -6,8 +6,9 @@
  * 9. Numero contatti con eta maggiore della media
  * 10. eta massima
  * 11. eta minima
- * Bella questa e' una prova
- * Questa e' un'altra prova
+ * 12. Contare quanti nomi contengono la stringa "anna"
+ * 13. Prendere una stringa in input e contare quanti nomi contengono quella stringa
+ * 14. Contare quanti cognomi finiscono con la lettera a
  */
 import java.util.*;
 public class App {
@@ -67,6 +68,8 @@ public class App {
 
         return m;
     }
+
+    
 
     public static void main(String[] args) throws Exception {
         Contatti rubrica[] = new Contatti[1000];
@@ -273,6 +276,30 @@ public class App {
                         minEta = maxMinEta(rubrica, false, cont, annoCorrente);
 
                         System.out.println("Eta min= " + minEta);
+                    }else{
+                        System.out.println("Non ci sono elementi nell'array");
+                    }
+                    break;
+                case 12:
+                    if(cont > 0){
+                        
+                    }else{
+                        System.out.println("Non ci sono elementi nell'array");
+                    }
+                    break;
+                case 13:
+
+                    break;
+                case 14:
+                    if(cont > 0){
+                        int k = 0;
+                        for(int i = 0; i < cont; i++){
+                            if(rubrica[i].nameEndsWith('a')){
+                                k++;
+                            }
+                        }
+
+                        System.out.println("Contatti con nome che finisce per a= " + k);
                     }else{
                         System.out.println("Non ci sono elementi nell'array");
                     }
