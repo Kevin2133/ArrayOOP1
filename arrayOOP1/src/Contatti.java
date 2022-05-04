@@ -27,7 +27,7 @@ public class Contatti {
 
     boolean nameEndsWith(char[] c){
         for(int i = 0; i < c.length; i++){
-            if(this.nome.charAt(this.nome.length() - 1) == c[i]){
+            if(this.nome.toLowerCase().charAt(this.nome.length() - 1) == c[i]){
                 return true;
             }
         }

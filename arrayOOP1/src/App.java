@@ -35,7 +35,7 @@ public class App {
     }
 
     static boolean searchSubs (String s, String subs){
-        if(s.indexOf(subs) > 0){
+        if(s.toLowerCase().indexOf(subs) > -1){
             return true;
         }
 
@@ -103,6 +103,10 @@ public class App {
             System.out.println("9. Numero contatti con eta maggiore della media");
             System.out.println("10. Eta Max");
             System.out.println("11. Eta Min");
+            System.out.println("12. Nomi che contengono la stringa \"anna\"");
+            System.out.println("13. Nomi che contengono una stringa presa in input");
+            System.out.println("14. Nomi che finiscono per \'a\'");
+            System.out.println("15. Nomi che finiscono per consonante");
 
             scelta = scanner.nextInt();
             scanner.nextLine();
@@ -298,7 +302,7 @@ public class App {
                             }
                         }
 
-                        System.out.println("Numero di nomi che contengono la stringa \"anna\" " + k);
+                        System.out.println("Numero di nomi che contengono la stringa \"anna\"= " + k);
                     }else{
                         System.out.println("Non ci sono elementi nell'array");
                     }
@@ -317,7 +321,7 @@ public class App {
                         }
                     }
 
-                    System.out.println("Numero di nomi che contengono la stringa \"anna\" " + k);
+                    System.out.println("Numero di nomi che contengono la stringa \"" + subs + "\"= " + k);
                 }else{
                     System.out.println("Non ci sono elementi nell'array");
                 }
@@ -325,8 +329,9 @@ public class App {
                 case 14:
                     if(cont > 0){
                         int k = 0;
+                        char[] searchFor = {'a'};
                         for(int i = 0; i < cont; i++){
-                            if(rubrica[i].nameEndsWith('a')){
+                            if(rubrica[i].nameEndsWith(searchFor)){
                                 k++;
                             }
                         }
