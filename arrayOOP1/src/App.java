@@ -47,9 +47,9 @@ public class App {
         int k = 0;
         
         for(int i = 0; i < cont; i++){
-        if(rubrica[i].calcolaEta(annoCorrente) > -1)
-            somma = somma + rubrica[i].calcolaEta(annoCorrente);
-            k++;
+            if(rubrica[i].calcolaEta(annoCorrente) > -1)
+                somma = somma + rubrica[i].calcolaEta(annoCorrente);
+                k++;
         }
 
         media = somma / k;
@@ -58,15 +58,16 @@ public class App {
     }
 
     static int maxMinEta (Contatti[] rubrica, boolean max, int cont, int annoCorrente){
-        int m = rubrica[0].calcolaEta(annoCorrente);
-
+        int m;
         if(max){
+            m = rubrica[0].calcolaEta(annoCorrente);
             for(int i = 0; i < cont; i++){
                 if(rubrica[i].calcolaEta(annoCorrente) > m){
                     m = rubrica[i].calcolaEta(annoCorrente);
                 }
             }
         }else{
+            m = 200;
             for(int i = 0; i < cont; i++){
                 if(rubrica[i].calcolaEta(annoCorrente) < m){
                     m = rubrica[i].calcolaEta(annoCorrente);
