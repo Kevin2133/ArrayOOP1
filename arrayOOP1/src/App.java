@@ -9,6 +9,7 @@
  * 12. Contare quanti nomi contengono la stringa "anna"
  * 13. Prendere una stringa in input e contare quanti nomi contengono quella stringa
  * 14. Contare quanti cognomi finiscono con la lettera a
+ * Quanti contatti hanno il doppio nome
  */
 import java.util.*;
 public class App {
@@ -108,6 +109,7 @@ public class App {
             System.out.println("13. Nomi che contengono una stringa presa in input");
             System.out.println("14. Nomi che finiscono per \'a\'");
             System.out.println("15. Nomi che finiscono per consonante");
+            System.out.println("16. Contatti con doppio nome");
 
             scelta = scanner.nextInt();
             scanner.nextLine();
@@ -355,6 +357,20 @@ public class App {
                         }
 
                         System.out.println("Nomi che finiscono per consonante= " + k);
+                    }else{
+                        System.out.println("Non ci sono elementi nell'array");
+                    }
+                    break;
+                case 16:
+                    if(cont > 0){
+                        int k = 0;
+                        for(int i = 0; i < cont; i++){
+                            if(rubrica[i].nome.indexOf(' ') > -1){
+                                k++;
+                            }
+                        }
+
+                        System.out.println("Contatti con doppio nome= " + k);
                     }else{
                         System.out.println("Non ci sono elementi nell'array");
                     }
